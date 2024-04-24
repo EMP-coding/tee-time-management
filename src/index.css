@@ -1,0 +1,115 @@
+:root {
+  --primary-color: #646cff;
+  --secondary-color: #535bf2;
+  --background-color: #f0f0f0;
+  --text-color: #333333;
+  --link-hover-color: #747bff;
+}
+
+body {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  font-weight: 500;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: var(--secondary-color);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: border-color 0.25s, background-color 0.3s, color 0.3s;
+}
+button:hover {
+  border-color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+button:focus,
+button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--secondary-color);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-color: #ffffff;
+    --text-color: #213547;
+  }
+  a:hover {
+    color: var(--link-hover-color);
+  }
+  button {
+    background-color: #f9f9f9;
+    color: var(--primary-color);
+  }
+}
+
+/* Apply styles to the login form container */
+.member-login-container {
+  max-width: 400px; /* Adjust the max-width as needed */
+  margin: 0 auto; /* Center the form horizontally */
+}
+
+/* Apply styles to form elements */
+.member-login-form label {
+  display: block; /* Display labels as block elements */
+  margin-bottom: 0.5rem; /* Add some vertical spacing between label and input */
+}
+
+.member-login-form input[type="email"],
+.member-login-form input[type="password"],
+.member-login-form button {
+  width: 100%; /* Make inputs and button full width */
+  padding: 0.5rem; /* Add some padding to inputs and button */
+  margin-bottom: 1rem; /* Add some vertical spacing between form elements */
+  border: 1px solid #ccc; /* Add border to inputs and button */
+  border-radius: 5px; /* Add border-radius for rounded corners */
+}
+
+.member-login-form button {
+  background-color: #007bff; /* Apply a background color to the button */
+  color: #fff; /* Apply a text color to the button */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.member-login-form button:hover {
+  background-color: #0056b3; /* Change background color on hover */
+}
+
+.member-login-form p {
+  margin-top: 1rem; /* Add some vertical spacing above the paragraph */
+}
+
+.member-login-form p a {
+  color: #007bff; /* Apply a link color */
+  text-decoration: none; /* Remove underline from link */
+}
+
+.member-login-form p a:hover {
+  text-decoration: underline; /* Underline link on hover */
+}
