@@ -6,6 +6,7 @@ import StaffLogin from './features/staff/StaffLogin';
 import MemberLogin from './features/members/MemberLogin';
 import MemberDashboard from './features/members/MemberDashboard';
 import Register from './features/members/MemberRegister';
+import TeeTimeScheduler from './features/members/TeeTimeScheduler';
 
 const App: React.FC = () => {
     return (
@@ -17,7 +18,8 @@ const App: React.FC = () => {
                 <Route path="/login/staff" element={<StaffLogin />} />
                 <Route path="/login/member" element={<MemberLogin />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/dashboard/member" element={<MemberDashboard />} />
+                <Route path="/member-dashboard" element={<MemberDashboard />} />
+                <Route path="/schedule-tee-time" element={<TeeTimeScheduler />} />
                 {/* Additional routes as needed */}
             </Routes>
         </Router>

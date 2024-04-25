@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { endpoints } from '../../../API/apiendpoints';
+import { endpoints } from '../../API/apiendpoints';
 import axios from 'axios';
 
 const Register: React.FC = () => {
