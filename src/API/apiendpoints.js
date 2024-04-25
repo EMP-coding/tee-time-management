@@ -5,5 +5,6 @@ export const endpoints = {
     CREATE_MEMBER: `${API_BASE_URL}/create/member`, // Endpoint to create a new member
     REGISTER_MEMBER: `${API_BASE_URL}/members/register`, // Endpoint to register a new member
     LOGIN_MEMBER: `${API_BASE_URL}/members/login`, // Endpoint to authenticate a member
-    AVAIL_TEE_TIMES: `${API_BASE_URL}/tee-times/available`
+    AVAIL_TEE_TIMES: `${API_BASE_URL}/tee-times/available`,
+    RESERVE_TEE_TIME: `${API_BASE_URL}/tee-times/reserve`
 };

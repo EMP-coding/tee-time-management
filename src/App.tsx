@@ -1,27 +1,28 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar'; // Import Navbar component
-import HomePage from './components/HomePage';
-import StaffLogin from './features/staff/StaffLogin';
-import MemberLogin from './features/members/MemberLogin';
-import MemberDashboard from './features/members/MemberDashboard';
-import Register from './features/members/MemberRegister';
-import TeeTimeScheduler from './features/members/TeeTimeScheduler';
+import Navbar from './components/Navbar'; // Ensure the path is correct
+import HomePage from './components/HomePage'; // Ensure the path is correct
+import StaffLogin from './features/staff/StaffLogin'; // Ensure the path is correct
+import MemberLogin from './features/members/MemberLogin'; // Ensure the path is correct
+import MemberDashboard from './features/members/MemberDashboard'; // Ensure the path is correct
+import Register from './features/members/MemberRegister'; // Ensure the path is correct
+import TeeTimeScheduler from './features/members/TeeTimeScheduler'; // Ensure the path is correct
+import Footer from './components/Footer';
 
 const App: React.FC = () => {
     return (
         <Router>
-            {/* Include Navbar component */}
-            <Navbar />
+            <Navbar /> 
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/login/staff" element={<StaffLogin />} />
-                <Route path="/login/member" element={<MemberLogin />} />
-                <Route path="/register" element={<Register />} />
+                <Route path="/members/login" element={<MemberLogin />} />
+                <Route path="/members/register" element={<Register />} />
                 <Route path="/member-dashboard" element={<MemberDashboard />} />
                 <Route path="/schedule-tee-time" element={<TeeTimeScheduler />} />
-                {/* Additional routes as needed */}
+                {/* Add more routes here if necessary */}
             </Routes>
+            <Footer />
         </Router>
     );
 };

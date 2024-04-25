@@ -1,0 +1,322 @@
+/* TeeTimeScheduler.css */
+
+.tee-time-scheduler {
+    padding: 16px;
+    width: 100%; /* Take the full width of the container */
+    /* max-width: 768px; Max width for tablet view */
+    height: 75vh; /* 75% of the viewport height */
+    overflow-y: auto;
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.tee-times-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Reduced gap for compactness */
+}
+
+.tee-time-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px; /* Add some space between the items */
+  }
+  
+  .time-display {
+    font-size: 1em;
+    flex: 0 0 auto; /* Prevent the time from growing or shrinking */
+  }
+  
+  .slots-container {
+    display: flex;
+    flex: 1; /* Take up the rest of the space in the .tee-time-item */
+    justify-content: space-around; /* Distribute space around the slots */
+    align-items: center; /* Center slots vertically */
+    padding: 0 16px; /* Padding on sides */
+  }
+  
+  .slot {
+    flex: 1; /* Allow each slot to grow as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px; /* Fixed height for uniformity */
+    margin: 0 4px; /* Margin on the sides of each slot */
+    background-color: #eee;
+    border-radius: 4px;
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1); /* Optional: add inset shadow for depth */
+  }
+  
+  /* Additional styles for filled and available slots */
+  .slot-available {
+    background-color: #a5d6a7; /* green */
+  }
+
+  .slot-available:hover {
+    background-color: #84d786; /* green */
+  }
+  
+  .slot-filled {
+    background-color: #ef9a9a; /* red */
+    cursor: pointer;
+  }
+
+/* Add responsiveness for very small devices */
+@media (max-width: 480px) {
+    .tee-time-scheduler {
+        max-width: 100%; /* Full width on small screens */
+    }
+}
+
+
+/* Member-specific styles */
+.member-login-container {
+    max-width: 400px;
+    margin: 2em auto;
+    padding: 1em;
+    background: #ffffff; /* White background for the form area */
+    border: 1px solid #050505; /* Subtle border around the form */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  }
+  
+  .member-login-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .member-login-form input[type="email"],
+  .member-login-form input[type="password"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .member-login-form button {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: white; 
+    margin-bottom: 1rem;
+  }
+  
+  .member-login-form button:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  .member-login-form p {
+    margin-top: 1rem;
+  }
+  
+  .member-login-form p a {
+    color: var(--primary-color);
+  }
+  
+  .member-login-form p a:hover {
+    text-decoration: underline;
+  }
+
+  .member-dashboard {
+    padding: 20px;
+    text-align: center; /* Center align the text for better aesthetics */
+}
+
+.dashboard-buttons {
+    margin-bottom: 30px;
+}
+
+.dashboard-link {
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+.dashboard-link:last-child {
+    margin-right: 0;
+}
+
+.btn {
+    padding: 15px 30px; /* Larger padding for a more button-like appearance */
+    font-size: 1rem; /* Larger font size for readability */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none; /* Remove border for a cleaner look */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+}
+
+.reservation-window {
+    padding: 20px;
+    border: 1px solid #ccc; /* Subtle border for the reservation area */
+    border-radius: 8px; /* Rounded corners for the reservation area */
+    margin-top: 20px;
+}
+
+.reservation-details {
+    height: 150px; /* Or however tall you want it to be */
+    /* More styles as needed */
+}
+
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .dashboard-nav .dashboard-links {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .dashboard-nav .dashboard-links li {
+    /* Optional: additional styles for list items if needed */
+  }
+  
+  .dashboard-nav .dashboard-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    /* Additional styles for links */
+  }
+
+  .register-container {
+    max-width: 400px; /* Set a max-width for the form */
+    margin: auto; /* Center the form horizontally */
+    padding: 1em;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center the title and button */
+  }
+  
+  .register-heading {
+    margin-bottom: 1em;
+  }
+  
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between form inputs */
+  }
+  
+  .register-form .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align the form groups */
+  }
+  
+  .register-form .form-label {
+    margin-bottom: 0.5em; /* Space between label and input */
+  }
+  
+  .register-form .form-input {
+    width: 100%; /* Make inputs take up 100% of their parent's width */
+    padding: 10px; /* Add padding for aesthetics */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 1em; /* Space between input groups */
+  }
+  
+  .submit-btn {
+    width: 100%; /* Make the button take up 100% of form width */
+    padding: 10px; /* Padding for the button */
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none; /* Remove the default border */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  .submit-btn:hover {
+    background-color: var(--secondary-color); /* Change background on hover */
+  }
+  
+  .login-link {
+    margin-top: 1em;
+  }
+  
+  .login-link a {
+    color: var(--primary-color);
+  }
+  
+  .login-link a:hover {
+    text-decoration: underline;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .form-label {
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .submit-btn:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  /* LoginForm Specific Styles */
+  .login-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 1em;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .error-message {
+    color: #d9534f; /* Bootstrap's `btn-danger` color for example */
+    margin-top: 1rem;
+  }
+  
+  /* Reusing .register-heading for login for consistency */
+  /* Reusing .register-form for login for consistency */
+  
+  /* Responsive Styles */
+  @media (max-width: 480px) {
+    .login-container,
+    .register-container {
+      width: 90%; /* Full width with a little margin on small screens */
+    }
+  }
+

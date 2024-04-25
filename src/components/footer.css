@@ -1,0 +1,11 @@
+.site-footer {
+    width: 100%; /* Ensure the footer is full-width */
+    padding: 10px 0; /* Padding for some vertical space */
+    background-image: linear-gradient(to right, green, rgb(6, 215, 252)); /* Gradient from green to blue */
+    text-align: center; /* Center-align the text */
+    color: white; /* Light text color for visibility on dark background */
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Optional: shadow for a lifting effect */
+    position: fixed;
+    bottom: 0; /* Fix the footer at the bottom */
+    left: 0; /* Align left to the viewport */
+}
