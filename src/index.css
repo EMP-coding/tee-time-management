@@ -62,3 +62,7 @@ button:hover {
     color: white; /* Ensuring text is white for readability */
   }
 }
+
+.homecontain {
+  margin-bottom: 15%;
+}

@@ -13,5 +13,6 @@ export const endpoints = {
     GENERATE_TEE_TIMES: `${API_BASE_URL}/tee-times/generate`,
     GET_MEMBER_BY_ID: `${API_BASE_URL}/members/m`,
     UPDATE_MEMBER: `${API_BASE_URL}/members/update`,
-    GET_BOOKING_BY_ID: `${API_BASE_URL}/tee-times/bookings`
+    GET_BOOKING_BY_ID: `${API_BASE_URL}/tee-times/bookings`,
+    DELETE_TEE_TIME: `${API_BASE_URL}/tee-times/{tee_time_id}/member/{member_id}`
 };

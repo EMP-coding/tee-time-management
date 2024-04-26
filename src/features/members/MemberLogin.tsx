@@ -21,16 +21,17 @@ const LoginForm: React.FC = () => {
             });
             if (response.status === 200 && response.data.access_token && response.data.member_id) {
                 console.log('Login successful', response.data);
-
+    
                 // Update context with user information
                 setUser({
                     memberId: response.data.member_id,
                     // Add any other user details you might want to store in context
                 });
-
-                // Store the access token in localStorage
-                localStorage.setItem('token', response.data.access_token);
-
+    
+                // Store the access token and memberId in localStorage
+                localStorage.setItem('access_token', response.data.access_token);
+                localStorage.setItem('memberId', response.data.member_id.toString()); // Ensure memberId is a string
+    
                 // Navigate to the Member Dashboard after successful login
                 navigate('/member-dashboard');
             } else {
