@@ -1,3 +1,4 @@
+
 const API_BASE_URL = 'http://localhost:5000'; // Base URL for your Flask API
 
 export const endpoints = {
@@ -6,5 +7,8 @@ export const endpoints = {
     REGISTER_MEMBER: `${API_BASE_URL}/members/register`, // Endpoint to register a new member
     LOGIN_MEMBER: `${API_BASE_URL}/members/login`, // Endpoint to authenticate a member
     AVAIL_TEE_TIMES: `${API_BASE_URL}/tee-times/available`,
-    RESERVE_TEE_TIME: `${API_BASE_URL}/tee-times/reserve`
+    RESERVE_TEE_TIME: `${API_BASE_URL}/tee-times/reserve`,
+    STAFF_SIGN_IN: `${API_BASE_URL}/staff/fixedlogin`,
+    VIEW_ALL_TEE_TIMES: `${API_BASE_URL}/tee-times/all`,
+    GENERATE_TEE_TIMES: `${API_BASE_URL}/tee-times/generate`
 };

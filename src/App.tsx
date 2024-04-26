@@ -8,6 +8,8 @@ import MemberDashboard from './features/members/MemberDashboard'; // Ensure the 
 import Register from './features/members/MemberRegister'; // Ensure the path is correct
 import TeeTimeScheduler from './features/members/TeeTimeScheduler'; // Ensure the path is correct
 import Footer from './components/Footer';
+import StaffDashboard from './features/staff/StaffDashBoard';
+import GenerateTeeTimes from './features/staff/GenerateTeeTimes';
 
 const App: React.FC = () => {
     return (
@@ -15,11 +17,13 @@ const App: React.FC = () => {
             <Navbar /> 
             <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/login/staff" element={<StaffLogin />} />
+                <Route path="/staff/login" element={<StaffLogin />} />
                 <Route path="/members/login" element={<MemberLogin />} />
                 <Route path="/members/register" element={<Register />} />
                 <Route path="/member-dashboard" element={<MemberDashboard />} />
                 <Route path="/schedule-tee-time" element={<TeeTimeScheduler />} />
+                <Route path="/staff-dashboard" element={<StaffDashboard />} />
+                <Route path="/staff/generate-tee-times" element={<GenerateTeeTimes />} />
                 {/* Add more routes here if necessary */}
             </Routes>
             <Footer />
