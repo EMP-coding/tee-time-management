@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { isUserSignedIn, signOut } from '../auth/authentication'; // Import the signOut function
 
 const Navbar: React.FC = () => {
-    // Check if user is signed in
-    const signedIn = isUserSignedIn();
+    // State to manage signed-in status
+    const [signedIn, setSignedIn] = useState(false);
+
+    // Effect to check sign-in status
+    useEffect(() => {
+        setSignedIn(isUserSignedIn());
+    }, []);
 
     // Event handler for sign out button
     const handleSignOut = () => {
-        // Call the signOut function to clear the token from local storage
-        signOut();
-        // Redirect to the home page or any other desired location
-        window.location.href = '/';
+        signOut(); // Call the signOut function to clear the token from local storage
+        setSignedIn(false); // Update state to reflect that user is no longer signed in
+        window.location.href = '/'; // Redirect to the home page or login page
     };
 
     return (

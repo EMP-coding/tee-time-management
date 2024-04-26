@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { endpoints } from '../../API/apiendpoints';
-import { useUser } from '../../context/UserContext'; // Import useUser hook
+import { useUser } from '../../context/UserContext';
 import './members.css';
 
 const LoginForm: React.FC = () => {
@@ -10,7 +10,7 @@ const LoginForm: React.FC = () => {
     const [password, setPassword] = useState('');
     const [loginError, setLoginError] = useState('');
     const navigate = useNavigate();
-    const { setUser } = useUser(); // Access setUser from context
+    const { setUser } = useUser(); 
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -25,12 +25,12 @@ const LoginForm: React.FC = () => {
                 // Update context with user information
                 setUser({
                     memberId: response.data.member_id,
-                    // Add any other user details you might want to store in context
+                    
                 });
     
-                // Store the access token and memberId in localStorage
+                
                 localStorage.setItem('access_token', response.data.access_token);
-                localStorage.setItem('memberId', response.data.member_id.toString()); // Ensure memberId is a string
+                localStorage.setItem('memberId', response.data.member_id.toString()); 
     
                 // Navigate to the Member Dashboard after successful login
                 navigate('/member-dashboard');
@@ -47,7 +47,7 @@ const LoginForm: React.FC = () => {
         <div className='portaltitle'>
             <h3>Member Portal</h3>
         <div className="member-login-container"> 
-            <form onSubmit={handleSubmit} className="member-login-form"> {/* Apply form class */}
+            <form onSubmit={handleSubmit} className="member-login-form"> 
                 <label>
                     Email:
                     <input type="email" value={email} onChange={e => setEmail(e.target.value)} />

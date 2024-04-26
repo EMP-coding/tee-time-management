@@ -1,4 +1,3 @@
-/* StaffLogin Specific Styles */
 .login-container {
     max-width: 400px;
     margin: auto;
@@ -11,7 +10,7 @@
 }
 
 .error-message {
-    color: #d9534f; /* Bootstrap's `btn-danger` color for example */
+    color: #d9534f; 
     margin-top: 1rem;
 }
 
@@ -74,7 +73,7 @@
 .generate-tee-times-container {
     display: flex;
     justify-content: center;
-    height: 10vh; /* Set height to viewport height for vertical centering */
+    height: 10vh; 
 }
 
 

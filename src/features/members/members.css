@@ -2,9 +2,9 @@
 
 .tee-time-scheduler {
     padding: 16px;
-    width: 100%; /* Take the full width of the container */
+    width: 100%; 
     /* max-width: 768px; Max width for tablet view */
-    height: 75vh; /* 75% of the viewport height */
+    height: 75vh; 
     overflow-y: auto;
     margin: auto;
     border: 1px solid #ccc;
@@ -14,7 +14,7 @@
 .tee-times-container {
     display: flex;
     flex-direction: column;
-    gap: 8px; /* Reduced gap for compactness */
+    gap: 8px; 
 }
 
 .tee-time-item {
@@ -25,65 +25,65 @@
     border-radius: 4px;
     background-color: #f9f9f9;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px; /* Add some space between the items */
+    margin-bottom: 10px; 
   }
   
   .time-display {
     font-size: 1em;
-    flex: 0 0 auto; /* Prevent the time from growing or shrinking */
+    flex: 0 0 auto; 
   }
   
   .slots-container {
     display: flex;
-    flex: 1; /* Take up the rest of the space in the .tee-time-item */
-    justify-content: space-around; /* Distribute space around the slots */
-    align-items: center; /* Center slots vertically */
-    padding: 0 16px; /* Padding on sides */
+    flex: 1; 
+    justify-content: space-around; 
+    align-items: center; 
+    padding: 0 16px; 
   }
   
   .slot {
-    flex: 1; /* Allow each slot to grow as needed */
+    flex: 1; 
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40px; /* Fixed height for uniformity */
-    margin: 0 4px; /* Margin on the sides of each slot */
+    height: 40px; 
+    margin: 0 4px; 
     background-color: #eee;
     border-radius: 4px;
-    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1); /* Optional: add inset shadow for depth */
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1); 
   }
   
-  /* Additional styles for filled and available slots */
+ 
   .slot-available {
-    background-color: #a5d6a7; /* green */
+    background-color: #a5d6a7; 
   }
 
   .slot-available:hover {
-    background-color: #84d786; /* green */
+    background-color: #84d786; 
   }
   
   .slot-filled {
-    background-color: #ef9a9a; /* red */
+    background-color: #ef9a9a; 
     cursor: pointer;
   }
 
-/* Add responsiveness for very small devices */
+
 @media (max-width: 480px) {
     .tee-time-scheduler {
-        max-width: 100%; /* Full width on small screens */
+        max-width: 100%; /
     }
 }
 
 
-/* Member-specific styles */
+
 .member-login-container {
     max-width: 480px;
     margin: 2em auto;
     padding: 1em;
-    background: #f6f5f5; /* White background for the form area */
-    border: 1px solid #050505; /* Subtle border around the form */
+    background: #f6f5f5; 
+    border: 1px solid #050505; 
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
     display: flex;
     justify-content: center;
   }
@@ -129,7 +129,7 @@
 
   .member-dashboard {
     padding: 20px;
-    text-align: center; /* Center align the text for better aesthetics */
+    text-align: center; 
 }
 
 .dashboard-buttons {
@@ -146,14 +146,13 @@
 }
 
 .btn {
-    padding: 15px 30px; /* Larger padding for a more button-like appearance */
-    font-size: 1rem; /* Larger font size for readability */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    padding: 15px 30px; 
+    font-size: 1rem; 
+    transition: background-color 0.3s; 
 }
-
 .btn-primary {
     background-color: var(--primary-color);
-    border: none; /* Remove border for a cleaner look */
+    border: none; 
     color: white;
 }
 
@@ -162,20 +161,20 @@
 }
 
 .reservation-window {
-    overflow-y: auto; /* Makes the window scrollable */
-    max-height: 400px; /* Adjust according to your design needs */
+    overflow-y: auto; 
+    max-height: 400px; 
     display: flex;
     flex-direction: column;
     
 }
 
 .reservation-entry {
-    background-color: #fff; /* Light background for the card */
-    border: 1px solid #ddd; /* Subtle border for the card */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Shadow to lift the card off the page */
-    padding: 20px; /* Spacing inside the card */
-    margin-bottom: 20px; /* Space between cards */
-    border-radius: 8px; /* Rounded corners for the card */
+    background-color: #fff; 
+    border: 1px solid #ddd; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+    padding: 20px; 
+    margin-bottom: 20px; 
+    border-radius: 8px; 
 }
 
 .tee-time-details {
@@ -195,25 +194,23 @@
     gap: 20px;
   }
   
-  .dashboard-nav .dashboard-links li {
-    /* Optional: additional styles for list items if needed */
-  }
+ 
   
   .dashboard-nav .dashboard-links a {
     text-decoration: none;
     color: var(--text-color);
-    /* Additional styles for links */
+    
   }
 
   .register-container {
-    max-width: 400px; /* Set a max-width for the form */
-    margin: auto; /* Center the form horizontally */
+    max-width: 400px; 
+    margin: auto; 
     padding: 1em;
     background: #ffffff;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Center the title and button */
+    text-align: center; 
   }
   
   .register-heading {
@@ -223,39 +220,39 @@
   .register-form {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Space between form inputs */
+    gap: 10px; 
   }
   
   .register-form .form-group {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center align the form groups */
+    align-items: center; 
   }
   
   .register-form .form-label {
-    margin-bottom: 0.5em; /* Space between label and input */
+    margin-bottom: 0.5em; 
   }
   
   .register-form .form-input {
-    width: 100%; /* Make inputs take up 100% of their parent's width */
-    padding: 10px; /* Add padding for aesthetics */
+    width: 100%; 
+    padding: 10px; 
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 1em; /* Space between input groups */
+    margin-bottom: 1em; 
   }
   
   .submit-btn {
-    width: 100%; /* Make the button take up 100% of form width */
-    padding: 10px; /* Padding for the button */
+    width: 100%; 
+    padding: 10px; 
     border-radius: 5px;
     background-color: var(--primary-color);
     color: white;
-    border: none; /* Remove the default border */
-    cursor: pointer; /* Change cursor to pointer on hover */
+    border: none; 
+    cursor: pointer; 
   }
   
   .submit-btn:hover {
-    background-color: var(--secondary-color); /* Change background on hover */
+    background-color: var(--secondary-color); 
   }
   
   .login-link {
@@ -302,7 +299,7 @@
     background-color: var(--secondary-color);
   }
   
-  /* LoginForm Specific Styles */
+
   .login-container {
     max-width: 400px;
     margin: auto;
@@ -315,18 +312,17 @@
   }
   
   .error-message {
-    color: #d9534f; /* Bootstrap's `btn-danger` color for example */
+    color: #d9534f; 
     margin-top: 1rem;
   }
   
-  /* Reusing .register-heading for login for consistency */
-  /* Reusing .register-form for login for consistency */
+
   
-  /* Responsive Styles */
+
   @media (max-width: 480px) {
     .login-container,
     .register-container {
-      width: 90%; /* Full width with a little margin on small screens */
+      width: 90%; 
     }
   }
 
@@ -348,14 +344,14 @@
     padding: 2rem;
     border-radius: 0.5rem;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    background: #fff; /* Or any color you prefer */
-    max-width: 400px; /* Adjust as needed */
+    background: #fff; 
+    max-width: 400px; 
     margin: auto;
     gap: 1rem;
 }
 
 .profilecontainer h1 {
-    color: #333; /* Or any color you prefer */
+    color: #333; 
     margin-bottom: 1rem;
 }
 
@@ -367,7 +363,7 @@
 }
 
 .profilecontainer input {
-    width: 100%; /* Full width of the container */
+    width: 100%; 
     padding: 0.5rem;
     margin-top: 0.25rem;
     border: 1px solid #ccc;
@@ -384,35 +380,35 @@
     transition: background-color 0.2s ease-in-out;
 }
 
-/* Specific styles for the Update button */
+
 .profilecontainer button:first-of-type {
-    background-color: #4CAF50; /* Green color */
+    background-color: #4CAF50; 
     color: white;
 }
 
-/* Specific styles for the Back button */
+
 .profilecontainer button:last-of-type {
-    background-color: #f0f0f0; /* Light grey color */
+    background-color: #f0f0f0; 
     color: black;
 }
 
 .profilecontainer button:hover {
-    opacity: 0.9; /* Slightly lower opacity on hover */
+    opacity: 0.9; 
 }
 
-/* This will space out your labels and inputs */
+
 .profilecontainer label + label {
     margin-top: 1rem;
 }
 
 .profilecontainer input[readonly] {
-    background-color: #e7e7e7; /* A light gray to indicate it's not editable */
-    color: #686868; /* Optional: Change text color for read-only input */
+    background-color: #e7e7e7; 
+    color: #686868; 
 }
 
 .tee-time-past {
-    color: gray; /* Gray out the text */
-    background-color: #f0f0f0; /* Light gray background */
-    pointer-events: none; /* Disable clicking */
-    opacity: 0.5; /* Fade appearance */
+    color: gray; 
+    background-color: #f0f0f0; 
+    pointer-events: none; 
+    opacity: 0.5; 
 }

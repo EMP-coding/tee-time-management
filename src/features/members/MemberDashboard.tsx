@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { endpoints } from '../../API/apiendpoints';
 import { useUser } from '../../context/UserContext';
 import './members.css';
-
+//Not type checked (yet) was having issues. 
 const MemberDashboard = () => {
     const { user } = useUser();
     const [groupedBookings, setGroupedBookings] = useState({});
@@ -26,12 +26,12 @@ const MemberDashboard = () => {
 
     const groupBookings = (bookings) => {
         const grouped = bookings.reduce((acc, booking) => {
-            const key = booking.tee_time_start; // This assumes tee_time_start is unique enough for grouping, consider tee_time_id if available
+            const key = booking.tee_time_start; 
             if (!acc[key]) {
                 acc[key] = {
                     ...booking,
                     slotsBooked: 1,
-                    teeTimeId: booking.tee_time_id // Ensure you're capturing tee_time_id from booking data
+                    teeTimeId: booking.tee_time_id 
                 };
             } else {
                 acc[key].slotsBooked += 1;
@@ -69,7 +69,6 @@ const MemberDashboard = () => {
                     <ul className="dashboard-links">
                         <li><Link to="/dashboard">Home</Link></li>
                         <li><Link to="/dashboard/profile">Profile</Link></li>
-                        <li><Link to="/dashboard/settings">Settings</Link></li>
                         <li><Link to="/dashboard/logout">Logout</Link></li>
                     </ul>
                 </nav>

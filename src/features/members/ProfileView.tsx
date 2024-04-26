@@ -2,7 +2,7 @@ import React, { useEffect, useState, ChangeEvent } from 'react';
 import axios from 'axios';
 import { endpoints } from '../../API/apiendpoints';
 import { useUser } from '../../context/UserContext';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
+import { useNavigate } from 'react-router-dom'; 
 
 interface MemberDetails {
     id: number;
@@ -61,7 +61,7 @@ const ProfileView: React.FC = () => {
     };
 
     const goBack = () => {
-        navigate('/member-dashboard'); // Navigate back to member dashboard using v6 syntax
+        navigate('/member-dashboard'); 
     };
 
     if (isLoading) {

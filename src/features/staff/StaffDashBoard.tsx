@@ -16,7 +16,7 @@ const StaffDashboard: React.FC = () => {
 
     useEffect(() => {
         fetchTeeTimes(date); // Fetch tee times based on the selected date
-    }, [date]); // useEffect dependency array includes date to refetch when it changes
+    }, [date]); 
 
     const fetchTeeTimes = async (selectedDate: string) => {
         try {
@@ -33,7 +33,7 @@ const StaffDashboard: React.FC = () => {
     };
 
     const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setDate(event.target.value); // This will trigger useEffect to refetch the tee times
+        setDate(event.target.value); 
     };
     const navigate = useNavigate(); 
     const goToGenerateTeeTimes = () => {

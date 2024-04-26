@@ -1,19 +1,16 @@
-// src/auth/authentication.ts
-
-// Define the type for the token, it should be a string when storing to localStorage
 type TokenType = string;
 
-// Function to save the JWT token to localStorage. The token must be a string.
+// Function to save the JWT token to localStorage. 
 export const storeToken = (token: TokenType): void => {
   localStorage.setItem('access_token', token);
 };
 
-// Function to get the JWT token from localStorage. This can return null if the token isn't present.
+// Function to get the JWT token from localStorage. 
 export const getToken = (): string | null => {
   return localStorage.getItem('access_token');
 };
 
-// Function to check if the user is signed in. If getToken() returns a string, the user is considered signed in.
+// Function to check if the user is signed in.
 export const isUserSignedIn = (): boolean => {
     return getMemberId() !== null;
   };
