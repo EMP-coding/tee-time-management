@@ -51,14 +51,14 @@
     background-color: var(--secondary-color);
 }
 
-.tee-time-list {
+.tee-time-list2 {
     max-height: 300px;
     overflow-y: auto;
-    border: 1px solid #ccc;
+    border: 10px solid #3e474929;
     padding: 10px;
 }
 
-.tee-time-item {
+.tee-time-item2 {
     margin-bottom: 5px;
     padding: 5px;
     background-color: #a5d6a7 !important;
@@ -69,4 +69,23 @@
 }
 .tee-time-item.booked {
     background-color: red;
+}
+
+.generate-tee-times-container {
+    display: flex;
+    justify-content: center;
+    height: 10vh; /* Set height to viewport height for vertical centering */
+}
+
+
+.btn-generate-tee-times {
+    margin-top: 10px;
+}
+
+.generate-tee-times-container button {
+    margin-right: 5px;
+    max-height: 75%;
+}
+.generate-title {
+    text-align: center;
 }

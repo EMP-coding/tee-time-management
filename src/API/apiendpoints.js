@@ -10,5 +10,7 @@ export const endpoints = {
     RESERVE_TEE_TIME: `${API_BASE_URL}/tee-times/reserve`,
     STAFF_SIGN_IN: `${API_BASE_URL}/staff/fixedlogin`,
     VIEW_ALL_TEE_TIMES: `${API_BASE_URL}/tee-times/all`,
-    GENERATE_TEE_TIMES: `${API_BASE_URL}/tee-times/generate`
+    GENERATE_TEE_TIMES: `${API_BASE_URL}/tee-times/generate`,
+    GET_MEMBER_BY_ID: `${API_BASE_URL}/members/m`,
+    UPDATE_MEMBER: `${API_BASE_URL}/members/update`
 };

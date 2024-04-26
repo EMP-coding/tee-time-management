@@ -8,6 +8,7 @@ const Register: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [error, setError] = useState('');
 
     const handleFirstNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFirstName(e.target.value);
@@ -31,8 +32,9 @@ const Register: React.FC = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        
+        setError('')
         if (password !== confirmPassword) {
+            setError("Passwords do not match.");
             console.error("Passwords do not match");
             return;
         }
@@ -60,6 +62,7 @@ const Register: React.FC = () => {
     return (
         <div className="register-container">
           <h2 className="register-heading">Register</h2>
+          {error && <div className="error-message">{error}</div>}
           <form className="register-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="firstName" className="form-label">First Name:</label>

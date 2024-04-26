@@ -10,6 +10,8 @@ import TeeTimeScheduler from './features/members/TeeTimeScheduler'; // Ensure th
 import Footer from './components/Footer';
 import StaffDashboard from './features/staff/StaffDashBoard';
 import GenerateTeeTimes from './features/staff/GenerateTeeTimes';
+import ProfileView from './features/members/ProfileView';
+import { UserProvider } from './context/UserContext';
 
 const App: React.FC = () => {
     return (
@@ -24,10 +26,12 @@ const App: React.FC = () => {
                 <Route path="/schedule-tee-time" element={<TeeTimeScheduler />} />
                 <Route path="/staff-dashboard" element={<StaffDashboard />} />
                 <Route path="/staff/generate-tee-times" element={<GenerateTeeTimes />} />
+                <Route path="/dashboard/profile" element={<ProfileView />} />
                 {/* Add more routes here if necessary */}
             </Routes>
             <Footer />
         </Router>
+        
     );
 };
 

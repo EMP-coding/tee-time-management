@@ -1,3 +1,5 @@
+//UserContext.ts
+
 import React, { createContext, useContext, useState, ReactNode, FunctionComponent } from 'react';
 
 interface User {
@@ -14,7 +16,7 @@ interface UserContextType {
 
 // Update default values to include user and setUser
 const defaultContextValue: UserContextType = {
-  user: { memberId: 3 }, // Set default memberId to 3
+  user: { memberId: 7 }, // Set default memberId to 3
   setUser: () => {},
   isLoggedIn: false,
   setIsLoggedIn: () => {}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { endpoints } from '../../API/apiendpoints';
+import './members.css'; // Import the CSS file
 
 const LoginForm: React.FC = () => {
     const [email, setEmail] = useState('');
@@ -33,8 +34,10 @@ const LoginForm: React.FC = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className='portaltitle'>
+            <h3>Member Portal</h3>
+        <div className="member-login-container"> 
+            <form onSubmit={handleSubmit} className="member-login-form"> {/* Apply form class */}
                 <label>
                     Email:
                     <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
@@ -46,6 +49,7 @@ const LoginForm: React.FC = () => {
                 <button type="submit">Login</button>
                 {loginError && <p>{loginError}</p>}
             </form>
+        </div>
         </div>
     );
 };

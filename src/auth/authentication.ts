@@ -1,4 +1,4 @@
-// src/auth/authService.ts
+// src/auth/authentication.ts
 
 // Define the type for the token, it should be a string when storing to localStorage
 type TokenType = string;

@@ -77,13 +77,15 @@
 
 /* Member-specific styles */
 .member-login-container {
-    max-width: 400px;
+    max-width: 480px;
     margin: 2em auto;
     padding: 1em;
-    background: #ffffff; /* White background for the form area */
+    background: #f6f5f5; /* White background for the form area */
     border: 1px solid #050505; /* Subtle border around the form */
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    display: flex;
+    justify-content: center;
   }
   
   .member-login-form label {
@@ -320,3 +322,82 @@
     }
   }
 
+
+.portaltitle {
+    text-align: center;
+    font-weight: bold;
+}
+
+.navbackground {
+    background-image: linear-gradient(to right, white, green, rgb(6, 215, 252))
+}
+
+
+.profilecontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background: #fff; /* Or any color you prefer */
+    max-width: 400px; /* Adjust as needed */
+    margin: auto;
+    gap: 1rem;
+}
+
+.profilecontainer h1 {
+    color: #333; /* Or any color you prefer */
+    margin-bottom: 1rem;
+}
+
+.profilecontainer label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.profilecontainer input {
+    width: 100%; /* Full width of the container */
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+}
+
+.profilecontainer button {
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* Specific styles for the Update button */
+.profilecontainer button:first-of-type {
+    background-color: #4CAF50; /* Green color */
+    color: white;
+}
+
+/* Specific styles for the Back button */
+.profilecontainer button:last-of-type {
+    background-color: #f0f0f0; /* Light grey color */
+    color: black;
+}
+
+.profilecontainer button:hover {
+    opacity: 0.9; /* Slightly lower opacity on hover */
+}
+
+/* This will space out your labels and inputs */
+.profilecontainer label + label {
+    margin-top: 1rem;
+}
+
+.profilecontainer input[readonly] {
+    background-color: #e7e7e7; /* A light gray to indicate it's not editable */
+    color: #686868; /* Optional: Change text color for read-only input */
+}

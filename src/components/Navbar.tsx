@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                <div className="navbackground collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
                             <Link className="nav-link" to="/">Home</Link>
@@ -33,22 +33,10 @@ const Navbar: React.FC = () => {
                             <Link className="nav-link" to="/contact">Contact</Link>
                         </li>
                     </ul>
-                    {signedIn ? (
-                        // If signed in, show a sign out button with the signOut event handler
-                        <button className="btn btn-outline-primary" type="button" onClick={handleSignOut}>
+                    {signedIn && (
+                        <button className="btn btn-outline-success" type="button" onClick={handleSignOut}>
                             Sign Out
                         </button>
-                    ) : (
-                        // If not signed in, show the sign in dropdown
-                        <div className="dropdown">
-                            <button className="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                Sign In
-                            </button>
-                            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <li><Link className="dropdown-item" to="/members/login">Member Sign In</Link></li>
-                                <li><Link className="dropdown-item" to="/staff/login">Staff Sign In</Link></li>
-                            </ul>
-                        </div>
                     )}
                 </div>
             </div>
