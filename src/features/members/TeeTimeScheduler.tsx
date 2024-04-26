@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { endpoints } from '../../API/apiendpoints';
 import { useUser } from '../../context/UserContext';
-import { isUserSignedIn } from '../../auth/authentication';
+import { isUserSignedIn, getMemberId} from '../../auth/authentication';
 import './members.css';
 
 interface TeeTime {
@@ -44,13 +44,14 @@ const TeeTimeScheduler: React.FC = () => {
     });
 
     const handleTeeTimeClick = (teeTimeId: number): void => {
-        if (isUserSignedIn()) {
+        const memberId = getMemberId(); // Get the member ID from local storage
+        if (memberId) {
             console.log("User is signed in, confirming reservation...");
             const selectedTeeTime = teeTimes.find(tt => tt.id === teeTimeId);
             if (selectedTeeTime) {
                 if (selectedTeeTime.available_slots >= numberOfPlayers) {
                     console.log("Reserving tee time with ID:", teeTimeId);
-                    reserveTeeTime(teeTimeId, user?.memberId || 0, numberOfPlayers);
+                    reserveTeeTime(teeTimeId, memberId, numberOfPlayers);
                 } else {
                     console.log("Not enough available slots for selected number of players.");
                 }

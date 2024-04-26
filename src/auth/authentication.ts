@@ -15,10 +15,15 @@ export const getToken = (): string | null => {
 
 // Function to check if the user is signed in. If getToken() returns a string, the user is considered signed in.
 export const isUserSignedIn = (): boolean => {
-  return getToken() !== null;
-};
+    return getMemberId() !== null;
+  };
 
 // Function to remove the token and handle the user sign out
 export const signOut = (): void => {
   localStorage.removeItem('access_token');
+};
+
+export const getMemberId = (): number | null => {
+    const memberId = localStorage.getItem('memberId');
+    return memberId ? parseInt(memberId) : null;
 };

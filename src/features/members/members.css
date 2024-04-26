@@ -162,17 +162,25 @@
 }
 
 .reservation-window {
-    padding: 20px;
-    border: 1px solid #ccc; /* Subtle border for the reservation area */
-    border-radius: 8px; /* Rounded corners for the reservation area */
-    margin-top: 20px;
+    overflow-y: auto; /* Makes the window scrollable */
+    max-height: 400px; /* Adjust according to your design needs */
+    display: flex;
+    flex-direction: column;
+    
 }
 
-.reservation-details {
-    height: 150px; /* Or however tall you want it to be */
-    /* More styles as needed */
+.reservation-entry {
+    background-color: #fff; /* Light background for the card */
+    border: 1px solid #ddd; /* Subtle border for the card */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Shadow to lift the card off the page */
+    padding: 20px; /* Spacing inside the card */
+    margin-bottom: 20px; /* Space between cards */
+    border-radius: 8px; /* Rounded corners for the card */
 }
 
+.tee-time-details {
+    margin: 5px 0;
+}
 
 .dashboard-header {
     text-align: center;
