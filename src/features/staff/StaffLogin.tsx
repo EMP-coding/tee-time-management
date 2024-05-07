@@ -23,6 +23,7 @@ const StaffLogin: React.FC = () => {
                 // Store the access token and staff ID in localStorage
                 localStorage.setItem('staffToken', response.data.access_token);
                 localStorage.setItem('staffId', response.data.staff_id.toString());
+                localStorage.setItem('clubID', response.data.club_id.toString());
                 // Navigate to the Staff Dashboard after successful login
                 navigate('/staff-dashboard');
             } else {

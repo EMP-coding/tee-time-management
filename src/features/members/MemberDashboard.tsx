@@ -15,9 +15,9 @@ const MemberDashboard = () => {
         }
     }, [user]);
 
-    const fetchBookings = async (memberId) => {
+    const fetchBookings = async (memberId: number) => {
         try {
-            const response = await axios.get(`${endpoints.GET_BOOKING_BY_ID}/member/${memberId}`);
+            const response = await axios.get(`${endpoints.GET_BOOKING_BY_ID}/bookings/member/${memberId}`);
             groupBookings(response.data);
         } catch (error) {
             console.error('Failed to fetch bookings:', error);

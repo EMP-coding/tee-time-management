@@ -88,3 +88,37 @@
 .generate-title {
     text-align: center;
 }
+
+.tee-time-item2 {
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #a5d6a7; /* Removed !important to maintain stylesheet cleanliness */
+    color: black;
+}
+
+.tee-time-item2.booked {
+    background-color: red; /* Same here */
+}
+
+.tee-time-item2 ul {
+    padding-left: 20px; /* Add padding to list inside tee-time item */
+}
+
+.tee-time-item2 li {
+    list-style-type: none; /* Remove bullet points */
+}
+
+.tee-time-slot {
+    padding: 5px;
+    margin: 2px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.tee-time-slot.booked {
+    background-color: #00e5fe;
+}
+
+.tee-time-slot.available {
+    background-color: #f9f9f9;
+}

@@ -15,11 +15,17 @@ interface TeeTime {
     total_slots: number;
 }
 
+interface Course {
+    id: number;
+    course_name: string;
+}
 const TeeTimeScheduler: React.FC = () => {
     const [teeTimes, setTeeTimes] = useState<TeeTime[]>([]);
     const [selectedDate, setSelectedDate] = useState<string>(new Date().toISOString().split('T')[0]);
     const [numberOfPlayers, setNumberOfPlayers] = useState<number>(1);
     const navigate = useNavigate();
+
+    
 
     useEffect(() => {
         const fetchTeeTimes = async () => {
@@ -58,11 +64,13 @@ const TeeTimeScheduler: React.FC = () => {
 
     const reserveTeeTime = async (teeTimeId: number, memberId: number, playersToReserve: number): Promise<void> => {
         try {
-            const response = await axios.post(endpoints.RESERVE_TEE_TIME, {
+            const payload = {
                 tee_time_id: teeTimeId,
                 member_id: memberId,
                 players: playersToReserve
-            });
+            };
+    
+            const response = await axios.post<void>(endpoints.RESERVE_TEE_TIME, payload);
             if (response.status === 201) {
                 alert('Tee time reserved successfully!');
             } else {
