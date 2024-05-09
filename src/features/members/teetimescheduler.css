@@ -23,7 +23,9 @@
     flex-direction: column;
     align-items: center; 
     gap: 15px; 
-    background-image: linear-gradient(to right, green, rgb(6, 215, 252))
+    background-color:  rgb(6,214,251);
+    /* background-image: linear-gradient(to right, green, rgb(6, 215, 252)); */
+    font-weight: bold;
 }
 
 /* Styles for transparent input fields and selects */
@@ -57,6 +59,7 @@
     flex-direction: column;
     gap: 8px;
     width: 100%; /* Full width to align with the above style */
+    background-color: rgb(236, 236, 236);
 }
 
 .tee-time-item {
@@ -65,7 +68,7 @@
     justify-content: space-between;
     padding: 8px;
     border-radius: 4px;
-    background-color: #f9f9f9;
+    background-color:  rgba(6, 214, 251, 0.86);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
 }
@@ -96,7 +99,7 @@
 }
 
 .slot-available {
-    background-color: #a5d6a7;
+    background-color: #67d86b;
     cursor: pointer;
 }
 
@@ -114,7 +117,7 @@
 }
 
 .slot-filled {
-    background-color: #ef9a9a;
+    background-color: #fb4d4d;
     cursor: pointer;
 }
 
