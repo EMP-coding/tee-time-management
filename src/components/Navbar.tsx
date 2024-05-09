@@ -1,21 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { isUserSignedIn, signOut } from '../auth/authentication'; // Import the signOut function
+import { useUser } from '../context/UserContext'; 
+import './navbar.css';
 
 const Navbar: React.FC = () => {
-    // State to manage signed-in status
-    const [signedIn, setSignedIn] = useState(false);
+    const { isLoggedIn, setIsLoggedIn } = useUser();
 
-    // Effect to check sign-in status
     useEffect(() => {
-        setSignedIn(isUserSignedIn());
-    }, []);
+        // This effect will ensure the Navbar re-renders when the isLoggedIn status changes.
+        // It's crucial if isLoggedIn is toggled from anywhere outside this component.
+    }, [isLoggedIn]);
 
-    // Event handler for sign out button
     const handleSignOut = () => {
-        signOut(); // Call the signOut function to clear the token from local storage
-        setSignedIn(false); // Update state to reflect that user is no longer signed in
-        window.location.href = '/'; // Redirect to the home page or login page
+        // Simulate the sign-out logic here
+        setIsLoggedIn(false);
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('memberId');
+        localStorage.removeItem('clubId');
+
+        
+        window.location.href = '/'; 
     };
 
     return (
@@ -25,14 +29,24 @@ const Navbar: React.FC = () => {
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="navbackground collapse navbar-collapse" id="navbarNavDropdown">
+                <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
                             <Link className="nav-link" to="/">Home</Link>
                         </li>
+                        {isLoggedIn && (
+                            <>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/member-dashboard">Dashboard</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/dashboard/profile">Profile</Link>
+                                </li>
+                            </>
+                        )}
                     </ul>
-                    {signedIn && (
-                        <button className="btn btn-outline-success" type="button" onClick={handleSignOut}>
+                    {isLoggedIn && (
+                        <button className="btn signout-btn btn-outline-success" type="button" onClick={handleSignOut}>
                             Sign Out
                         </button>
                     )}

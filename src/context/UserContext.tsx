@@ -1,20 +1,17 @@
-// UserContext.ts
-
-import React, { createContext, useContext, useState, ReactNode, FunctionComponent } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode, FunctionComponent } from 'react';
+import { getToken, storeToken, signOut as removeToken } from '../auth/authentication';
 
 interface User {
   memberId: number;
-  // You can add more user properties here
 }
 
 interface UserContextType {
-  user: User | null; // Adding user object to the context
-  setUser: (user: User | null) => void; // Method to update the user object
+  user: User | null;
+  setUser: (user: User | null) => void;
   isLoggedIn: boolean;
   setIsLoggedIn: (isLoggedIn: boolean) => void;
 }
 
-// Update default values to include user and setUser
 const defaultContextValue: UserContextType = {
   user: null,
   setUser: () => {},
@@ -28,49 +25,35 @@ export const UserProvider: FunctionComponent<{ children: ReactNode }> = ({ child
     const [user, setUser] = useState<User | null>(null);
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
-    const updateUser = (newUser: User | null) => {
-        setUser(prevUser => {
-            if (newUser === null) {
-                return null; // If newUser is null, return null directly
+    useEffect(() => {
+        const checkToken = () => {
+            const token = getToken();
+            const loggedIn = token !== null;
+            setIsLoggedIn(loggedIn);
+            if (loggedIn && !user) {
+                // Optionally fetch user details here if needed
+            } else if (!loggedIn && user) {
+                setUser(null);
             }
-            return {
-                ...prevUser,
-                memberId: newUser.memberId // Update memberId property
-            };
-        });
+        };
+
+        checkToken(); // Initial check
+        const interval = setInterval(checkToken, 1000); // Check every second
+
+        return () => clearInterval(interval); // Cleanup on unmount
+    }, [user]);
+
+    const handleSignOut = () => {
+        removeToken(); // Remove the token from storage
+        setIsLoggedIn(false); // Update isLoggedIn state
+        setUser(null); // Clear the user state
     };
 
     return (
-        <UserContext.Provider value={{ user, setUser: updateUser, isLoggedIn, setIsLoggedIn }}>
+        <UserContext.Provider value={{ user, setUser, isLoggedIn, setIsLoggedIn }}>
             {children}
         </UserContext.Provider>
     );
 };
 
-// Custom hook to use the user context
 export const useUser = () => useContext(UserContext);
-
-// src/auth/authentication.ts
-
-// Define the type for the token, it should be a string when storing to localStorage
-type TokenType = string;
-
-// Function to save the JWT token to localStorage. The token must be a string.
-export const storeToken = (token: TokenType): void => {
-  localStorage.setItem('access_token', token);
-};
-
-// Function to get the JWT token from localStorage. This can return null if the token isn't present.
-export const getToken = (): string | null => {
-  return localStorage.getItem('access_token');
-};
-
-// Function to check if the user is signed in. If getToken() returns a string, the user is considered signed in.
-export const isUserSignedIn = (): boolean => {
-  return getToken() !== null;
-};
-
-// Function to remove the token and handle the user sign out
-export const signOut = (): void => {
-  localStorage.removeItem('access_token');
-};

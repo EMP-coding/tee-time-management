@@ -1,0 +1,13 @@
+.signout-btn {
+    outline: none;
+    background-color:#4CAF50 ;
+    color: white;
+    max-height: 75%;
+  }
+  
+  .navbackground {
+    background-image: linear-gradient( rgb(255, 255, 255), rgb(206, 206, 206));
+    border-radius: 5px;
+    font-weight: bold;
+    height: 75;
+  }

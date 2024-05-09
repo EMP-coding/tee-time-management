@@ -1,0 +1,125 @@
+.tee-time-scheduler {
+    padding: 16px;
+    width: 100%;
+    height: 75vh;
+    overflow-y: auto;
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.selection-area {
+    width: 100%; 
+    max-width: 800px; 
+    padding: 20px;
+    margin-bottom: 20px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 15px; 
+    background-image: linear-gradient(to right, green, rgb(6, 215, 252))
+}
+
+/* Styles for transparent input fields and selects */
+.selection-area input,
+.selection-area select {
+    background-color: rgba(255, 255, 255, 0.5); 
+    border: 1px solid rgba(255, 255, 255, 0.8); 
+    color: #000; 
+    padding: 8px; 
+    border-radius: 4px; 
+}
+
+/* Adjusting the focus state*/
+.selection-area input:focus,
+.selection-area select:focus {
+    outline: none; 
+    border: 1px solid #ffffff; /* Brighter border on focus */
+    background-color: rgba(255, 255, 255, 0.7); 
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); 
+}
+
+/* Additional styling for labels*/
+.selection-area label {
+    color: #fff; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); 
+    margin-bottom: 5px; 
+    display: block; 
+}
+.tee-times-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%; /* Full width to align with the above style */
+}
+
+.tee-time-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.time-display {
+    font-size: 1em;
+    flex: 0 0 auto;
+}
+
+.slots-container {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 16px;
+}
+
+.slot {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    margin: 0 4px;
+    background-color: #eee;
+    border-radius: 4px;
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.slot-available {
+    background-color: #a5d6a7;
+    cursor: pointer;
+}
+
+.slot-available:hover {
+    background-color: #84d786;
+}
+
+.slot-unavailable {
+    background-color: #eee; 
+    cursor: default;
+}
+
+.slot-unavailable:hover {
+    background-color: #eee; /* Remain the same color on hover */
+}
+
+.slot-filled {
+    background-color: #ef9a9a;
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    .tee-time-scheduler {
+        max-width: 100%;
+    }
+}

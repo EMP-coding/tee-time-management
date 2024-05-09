@@ -18,6 +18,8 @@ export const isUserSignedIn = (): boolean => {
 // Function to remove the token and handle the user sign out
 export const signOut = (): void => {
   localStorage.removeItem('access_token');
+  localStorage.removeItem('memberId');
+  localStorage.removeItem('clubId')
 };
 
 export const getMemberId = (): number | null => {

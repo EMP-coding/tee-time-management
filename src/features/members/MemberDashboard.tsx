@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { endpoints } from '../../API/apiendpoints';
 import { useUser } from '../../context/UserContext';
 import './members.css';
-//Not type checked (yet) was having issues. 
+
 const MemberDashboard = () => {
     const { user } = useUser();
     const [groupedBookings, setGroupedBookings] = useState({});
@@ -62,18 +62,6 @@ const MemberDashboard = () => {
 
     return (
         <div>
-            {/* Dashboard Header */}
-            <header className="dashboard-header">
-                <h1>My Dashboard</h1>
-                <nav className="dashboard-nav">
-                    <ul className="dashboard-links">
-                        <li><Link to="/dashboard">Home</Link></li>
-                        <li><Link to="/dashboard/profile">Profile</Link></li>
-                        <li><Link to="/dashboard/logout">Logout</Link></li>
-                    </ul>
-                </nav>
-            </header>
-
             {/* Main Dashboard Content */}
             <main className="member-dashboard">
                 <h2>Welcome, Member!</h2>
