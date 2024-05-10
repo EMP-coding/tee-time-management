@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Select from 'react-select';
 import { useNavigate } from 'react-router-dom';
 import { endpoints } from '../../API/apiendpoints';
 import './teetimescheduler.css';
@@ -15,14 +16,15 @@ interface TeeTime {
 
 interface Course {
     id: number;
-    course_name: string;
+    label: string;
+    value: number;
     course_image: string;  // Assuming the course object includes an image URL
+    course_name: string;
 }
 
 const TeeTimeScheduler: React.FC = () => {
     const [teeTimes, setTeeTimes] = useState<TeeTime[]>([]);
     const [courses, setCourses] = useState<Course[]>([]);
-    const [selectedCourseId, setSelectedCourseId] = useState<string>('');
     const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
     const [selectedDate, setSelectedDate] = useState<string>(new Date().toISOString().split('T')[0]);
     const [numberOfPlayers, setNumberOfPlayers] = useState<number>(1);
@@ -33,24 +35,21 @@ const TeeTimeScheduler: React.FC = () => {
         if (clubId) {
             axios.get<Course[]>(`${endpoints.GET_COURSES_BY_CLUB_ID.replace('{club_id}', clubId)}`)
                 .then(response => {
-                    setCourses(response.data);
+                    const formattedCourses = response.data.map(course => ({
+                        ...course,
+                        value: course.id,
+                        label: course.course_name
+                    }));
+                    setCourses(formattedCourses);
                 })
                 .catch(error => console.error('Error fetching courses:', error));
         }
     }, []);
 
     useEffect(() => {
-        if (selectedCourseId) {
-            const course = courses.find(c => c.id.toString() === selectedCourseId);
-            setSelectedCourse(course || null);
-        }
-    }, [selectedCourseId, courses]);
-
-    useEffect(() => {
-        if (selectedCourseId && selectedDate) {
-            axios.get<TeeTime[]>(`${endpoints.AVAIL_TEE_TIMES}?date=${selectedDate}&course_id=${selectedCourseId}`)
+        if (selectedCourse) {
+            axios.get<TeeTime[]>(`${endpoints.AVAIL_TEE_TIMES}?date=${selectedDate}&course_id=${selectedCourse.value}`)
                 .then(response => {
-                    // First sort the tee times based on start_time
                     const sortedTeeTimes = response.data.sort((a, b) => new Date(a.start_time).getTime() - new Date(b.start_time).getTime());
                     setTeeTimes(sortedTeeTimes);
                 })
@@ -61,7 +60,7 @@ const TeeTimeScheduler: React.FC = () => {
         } else {
             setTeeTimes([]);
         }
-    }, [selectedDate, selectedCourseId]); // Ensures useEffect runs when these change
+    }, [selectedDate, selectedCourse]);
 
     const handleTeeTimeClick = (teeTimeId: number): void => {
         const confirmation = window.confirm("Are you sure you want to reserve this tee time?");
@@ -95,34 +94,37 @@ const TeeTimeScheduler: React.FC = () => {
         <div className="tee-time-scheduler">
             <h2>Available Tee Times</h2>
             <div className="selection-area">
-        {/* Conditionally render image when a course is selected */}
-        {selectedCourseId && (
-            <img src={courses.find(course => course.id === parseInt(selectedCourseId))?.course_image} alt="Selected Course" className="course-image" />
-        )}
-        <div className="selection-form">
-            <div>
-                <label htmlFor="course">Course:</label>
-                <select className="select-style" id="course" value={selectedCourseId} onChange={(e) => setSelectedCourseId(e.target.value)}>
-                    <option value="">Select a course</option>
-                    {courses.map(course => (
-                        <option key={course.id} value={course.id}>{course.course_name}</option>
-                    ))}
-                </select>
+                <img src={selectedCourse?.course_image || 'https://www.invitedclubs.com/globalassets/the-national-golf-club/_images/photoshelter-2023/the-national_golf_main_dji_0514_1920_1200.jpg?format=webp'} alt="Selected Course" className="course-image" />
+                <div className="selection-form">
+                    <div>
+                        <label htmlFor="course">Course:</label>
+                        <Select
+                            id="course"
+                            value={selectedCourse}
+                            onChange={setSelectedCourse}
+                            options={courses}
+                            className="select-style"
+                            placeholder="Select a course"
+                            styles={{
+                                control: styles => ({ ...styles, backgroundColor: 'rgba(255, 255, 255, 0.5)' }),
+                                menu: styles => ({ ...styles, backgroundColor: 'rgba(255, 255, 255)' })
+                            }}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="date">Date:</label>
+                        <input type="date" id="date" value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)} />
+                    </div>
+                    <div className='player'>
+                        <label htmlFor="players">Number of Players:</label>
+                        <select id="players" value={numberOfPlayers} onChange={(e) => setNumberOfPlayers(parseInt(e.target.value, 10))}>
+                            {[1, 2, 3, 4].map(number => (
+                                <option key={number} value={number}>{number}</option>
+                            ))}
+                        </select>
+                    </div>
+                </div>
             </div>
-            <div>
-                <label htmlFor="date">Date:</label>
-                <input type="date" id="date" value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)} />
-            </div>
-            <div>
-                <label htmlFor="players">Number of Players:</label>
-                <select id="players" value={numberOfPlayers} onChange={(e) => setNumberOfPlayers(parseInt(e.target.value, 10))}>
-                    {[1, 2, 3, 4].map(number => (
-                        <option key={number} value={number}>{number}</option>
-                    ))}
-                </select>
-            </div>
-        </div>
-    </div>
             <div className="tee-times-container">
                 {teeTimes.length > 0 ? (
                     teeTimes.map((teeTime) => (
@@ -153,4 +155,3 @@ const TeeTimeScheduler: React.FC = () => {
 };
 
 export default TeeTimeScheduler;
-

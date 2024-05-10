@@ -37,11 +37,11 @@
 
 .course-image {
     width: 50%;
-    height: 75%;
-    object-fit: cover; 
+    object-fit:cover; 
     box-shadow: 2px 5px 10px;
+    max-width: 300px;
 }
-/* Styles for transparent input fields and selects */
+
 .selection-area input,
 .selection-area select {
     background-color: rgba(255, 255, 255, 0.5); 
@@ -60,7 +60,7 @@
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); 
 }
 
-/* Additional styling for labels*/
+
 .selection-area label {
     color: #fff; 
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); 
@@ -133,7 +133,7 @@
 }
 
 .slot-unavailable:hover {
-    background-color: #b4b4b4; /* Remain the same color on hover */
+    background-color: #b4b4b4; 
 }
 
 .slot-filled {
@@ -146,3 +146,11 @@
         max-width: 100%;
     }
 }
+
+.select-style {
+    background-color: rgba(255, 255, 255, 0.5); 
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    padding: 8px;
+    border-radius: 4px;
+}
+
