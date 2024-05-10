@@ -3,7 +3,9 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { endpoints } from '../../API/apiendpoints';
 import { useUser } from '../../context/UserContext';
+import ClubNews from '../../components/ClubNews';
 import './members.css';
+
 
 const MemberDashboard = () => {
     const { user } = useUser();
@@ -71,7 +73,8 @@ const MemberDashboard = () => {
                         <button className="btn btn-primary">Schedule a Tee Time</button>
                     </Link>
                 </div>
-                <div className="reservation-window" style={{ overflowY: 'scroll', maxHeight: '400px' }}>
+                <div className='dashcontainer'>
+                <div className="reservation-window" style={{ overflowY: 'scroll', maxHeight: '600px' }}>
                     <h3>Current Reservations</h3>
                     <div className="reservation-details">
                         {Object.keys(groupedBookings).length > 0 ? (
@@ -91,6 +94,10 @@ const MemberDashboard = () => {
                         )}
                     </div>
                 </div>
+                <div className="news" style={{ overflowY: 'scroll', maxHeight: '600px' }}>
+                <ClubNews />
+                </div>
+                </div>            
             </main>
         </div>
     );
