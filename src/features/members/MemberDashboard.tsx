@@ -8,6 +8,7 @@ import './members.css';
 const MemberDashboard = () => {
     const { user } = useUser();
     const [groupedBookings, setGroupedBookings] = useState({});
+    const firstName = localStorage.getItem('firstName') || 'Member';
 
     useEffect(() => {
         if (user && user.memberId) {
@@ -64,7 +65,7 @@ const MemberDashboard = () => {
         <div>
             {/* Main Dashboard Content */}
             <main className="member-dashboard">
-                <h2>Welcome, Member!</h2>
+            <h2>Welcome, {firstName}!</h2>
                 <div className="dashboard-buttons">
                     <Link to="/schedule-tee-time" className="dashboard-link">
                         <button className="btn btn-primary">Schedule a Tee Time</button>

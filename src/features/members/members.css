@@ -1,13 +1,9 @@
 
-
-
 @media (max-width: 480px) {
   .tee-time-scheduler {
       max-width: 100%; /
   }
 }
-
-
 
 .member-login-container {
     max-width: 480px;
@@ -98,11 +94,10 @@
     max-height: 400px; 
     display: flex;
     flex-direction: column;
-    
 }
 
 .reservation-entry {
-    background-color: #fff; 
+    background-color:rgb(6,214,251); 
     border: 1px solid #ddd; 
     box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
     padding: 20px; 

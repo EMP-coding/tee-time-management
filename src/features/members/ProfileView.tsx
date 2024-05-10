@@ -3,6 +3,7 @@ import axios from 'axios';
 import { endpoints } from '../../API/apiendpoints';
 import { useUser } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom'; 
+import './members.css'
 
 interface MemberDetails {
     id: number;

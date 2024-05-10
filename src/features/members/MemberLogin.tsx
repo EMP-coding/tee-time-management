@@ -32,6 +32,7 @@ const LoginForm: React.FC = () => {
                 localStorage.setItem('access_token', response.data.access_token);
                 localStorage.setItem('memberId', response.data.member_id.toString()); 
                 localStorage.setItem('clubID', response.data.club_id.toString());
+                localStorage.setItem('firstName', response.data.first_name.toString());
                 
     
                 // Navigate to the Member Dashboard after successful login

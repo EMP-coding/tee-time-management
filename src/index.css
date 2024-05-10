@@ -1,8 +1,8 @@
 :root {
   --primary-color: #4CAF50; 
   --secondary-color: #8BC34A; 
-  --background-color: #FAFAFA; 
-  --text-color: #37474F; 
+  --background-color: rgb(206, 250, 216); 
+  --text-color: #000000; 
   --link-hover-color: #558B2F; 
 }
 
@@ -52,7 +52,7 @@ button:hover {
 @media (prefers-color-scheme: light) {
   :root {
     --background-color: #ffffff;
-    --text-color: #213547;
+    --text-color: #020202;
   }
   a:hover {
     color: var(--link-hover-color);

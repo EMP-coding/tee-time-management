@@ -9,6 +9,7 @@
     border-radius: 5px;
     font-weight: bold;
     height: 75;
+    background: linear-gradient(rgb(206, 250, 216), white, rgb(206, 250, 216));
     
   }
 
