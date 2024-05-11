@@ -9,12 +9,13 @@
     max-width: 480px;
     margin: 2em auto;
     padding: 1em;
-    background: #f6f5f5; 
+    background: rgb(6,214,251); 
     border: 1px solid #050505; 
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
     display: flex;
     justify-content: center;
+
   }
   
   .member-login-form label {
@@ -109,6 +110,7 @@
     padding: 20px; 
     margin-bottom: 20px; 
     border-radius: 8px; 
+    margin-right: 15px;
 }
 
 .tee-time-details {
@@ -360,5 +362,7 @@
   .dashcontainer {
     display: flex;
     flex-direction: column; 
+    margin-bottom: 65px;
   }
 }
+

@@ -133,16 +133,16 @@ const TeeTimeScheduler: React.FC = () => {
                                 {new Date(teeTime.start_time).toLocaleTimeString([], { timeStyle: 'short' })}
                             </div>
                             <div className="slots-container">
-                                {[...Array(teeTime.total_slots)].map((_, index) => (
-                                    <button
-                                        key={index}
-                                        onClick={() => handleTeeTimeClick(teeTime.id)}
-                                        disabled={index >= teeTime.available_slots || new Date(teeTime.start_time) < new Date()}
-                                        className={`slot ${index < teeTime.available_slots ? (index < numberOfPlayers ? 'slot-available' : 'slot-unavailable') : 'slot-filled'} ${index < numberOfPlayers ? 'slot-selected' : ''}`}
-                                    >
-                                        Player {index + 1}
-                                    </button>
-                                ))}
+                            {[...Array(teeTime.total_slots)].map((_, index) => (
+    <button
+        key={index}
+        onClick={() => handleTeeTimeClick(teeTime.id)}
+        disabled={index >= teeTime.available_slots || new Date(teeTime.start_time) < new Date()}
+        className={`slot ${index < teeTime.available_slots ? (index < numberOfPlayers ? 'slot-available' : 'slot-unavailable') : 'slot-filled'} ${index < numberOfPlayers ? 'slot-selected' : ''}`}
+    >
+        {index < teeTime.available_slots ? (index < numberOfPlayers ? `Player ${index + 1}` : 'Reserved') : 'Reserved'}
+    </button>
+))}
                             </div>
                         </div>
                     ))

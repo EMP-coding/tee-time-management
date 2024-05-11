@@ -27,6 +27,11 @@
     margin-bottom: 15px;
 }
 
+@media (max-width: 480px) {
+    .selection-area {
+        gap: 10px;
+    }
+}
 .selection-form {
     display: flex;
     flex-direction: column;
@@ -144,6 +149,7 @@
 @media (max-width: 480px) {
     .tee-time-scheduler {
         max-width: 100%;
+        
     }
 }
 
@@ -154,3 +160,10 @@
     border-radius: 4px;
 }
 
+
+@media (max-width: 480px) {
+    .slot {
+        font-size: x-small;
+        min-width: 65px;
+    }
+}
