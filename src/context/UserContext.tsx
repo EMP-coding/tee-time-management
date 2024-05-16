@@ -2,7 +2,10 @@ import React, { createContext, useContext, useState, useEffect, ReactNode, Funct
 import { getToken, storeToken, signOut as removeToken } from '../auth/authentication';
 
 interface User {
-  memberId: number;
+  memberId?: number;
+  isStaff: boolean;
+  staffId?: number;
+  clubId?: number;
 }
 
 interface UserContextType {
@@ -10,50 +13,54 @@ interface UserContextType {
   setUser: (user: User | null) => void;
   isLoggedIn: boolean;
   setIsLoggedIn: (isLoggedIn: boolean) => void;
+  isStaff: boolean;
+  handleLogin: (credentials: any, isStaffLogin: boolean) => Promise<void>;
+  handleSignOut: () => void;
+  setLoginState: (userData: { accessToken: string, staffId: number, clubId: number, isStaff: boolean }) => void; // New method
 }
 
 const defaultContextValue: UserContextType = {
   user: null,
   setUser: () => {},
   isLoggedIn: false,
-  setIsLoggedIn: () => {}
+  setIsLoggedIn: () => {},
+  isStaff: false,
+  handleLogin: async () => {},
+  handleSignOut: () => {},
+  setLoginState: () => {} // Provide a default noop function
 };
 
 const UserContext = createContext<UserContextType>(defaultContextValue);
 
 export const UserProvider: FunctionComponent<{ children: ReactNode }> = ({ children }) => {
-    const [user, setUser] = useState<User | null>(null);
-    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [user, setUser] = useState<User | null>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [isStaff, setIsStaff] = useState<boolean>(false);
 
-    useEffect(() => {
-        const checkToken = () => {
-            const token = getToken();
-            const loggedIn = token !== null;
-            setIsLoggedIn(loggedIn);
-            if (loggedIn && !user) {
-                // Optionally fetch user details here if needed
-            } else if (!loggedIn && user) {
-                setUser(null);
-            }
-        };
+  const handleSignOut = () => {
+    removeToken();
+    setIsLoggedIn(false);
+    setUser(null);
+    setIsStaff(false);
+  };
 
-        checkToken(); // Initial check
-        const interval = setInterval(checkToken, 1000); // Check every second
+  const setLoginState = ({ accessToken, staffId, clubId, isStaff }: { accessToken: string, staffId: number, clubId: number, isStaff: boolean }) => {
+    storeToken(accessToken);
+    setUser({
+      memberId: isStaff ? undefined : staffId,
+      isStaff,
+      staffId: isStaff ? staffId : undefined,
+      clubId,
+    });
+    setIsLoggedIn(true);
+    setIsStaff(isStaff);
+  };
 
-        return () => clearInterval(interval); // Cleanup on unmount
-    }, [user]);
-
-    const handleSignOut = () => {
-        removeToken(); // Remove the token from storage
-        setIsLoggedIn(false); // Update isLoggedIn state
-        setUser(null); // Clear the user state
-    };
-
-    return (
-        <UserContext.Provider value={{ user, setUser, isLoggedIn, setIsLoggedIn }}>
-            {children}
-        </UserContext.Provider>
-    );
+  return (
+    <UserContext.Provider value={{ user, setUser, isLoggedIn, setIsLoggedIn, isStaff, handleLogin: async () => {}, handleSignOut, setLoginState }}>
+      {children}
+    </UserContext.Provider>
+  );
 };
 
 export const useUser = () => useContext(UserContext);

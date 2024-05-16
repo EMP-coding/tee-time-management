@@ -4,21 +4,17 @@ import { useUser } from '../context/UserContext';
 import './navbar.css';
 
 const Navbar: React.FC = () => {
-    const { isLoggedIn, setIsLoggedIn } = useUser();
+    const { isLoggedIn, isStaff, setIsLoggedIn } = useUser();
 
     useEffect(() => {
-        // This effect will ensure the Navbar re-renders when the isLoggedIn status changes.
-        // It's crucial if isLoggedIn is toggled from anywhere outside this component.
-    }, [isLoggedIn]);
+        console.log("Navbar states:", { isLoggedIn, isStaff });
+    }, [isLoggedIn, isStaff]);
 
     const handleSignOut = () => {
-        // Simulate the sign-out logic here
         setIsLoggedIn(false);
         localStorage.removeItem('access_token');
         localStorage.removeItem('memberId');
         localStorage.removeItem('clubId');
-
-        
         window.location.href = '/'; 
     };
 
@@ -34,16 +30,25 @@ const Navbar: React.FC = () => {
                         <li className="nav-item">
                             <Link className="nav-link" to="/">Home</Link>
                         </li>
-                        {isLoggedIn && (
+                        {isLoggedIn && (isStaff ? (
                             <>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/member-dashboard">Dashboard</Link>
+                                    <Link className="nav-link" to="/staff-dashboard">Staff Dashboard</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/manage-events">Manage Events</Link>
+                                </li>
+                            </>
+                        ) : (
+                            <>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/member-dashboard">Member Dashboard</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/dashboard/profile">Profile</Link>
                                 </li>
                             </>
-                        )}
+                        ))}
                     </ul>
                     {isLoggedIn && (
                         <button className="btn signout-btn btn-outline-success" type="button" onClick={handleSignOut}>

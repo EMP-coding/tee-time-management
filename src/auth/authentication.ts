@@ -1,5 +1,6 @@
 type TokenType = string;
 
+
 // Function to save the JWT token to localStorage. 
 export const storeToken = (token: TokenType): void => {
   localStorage.setItem('access_token', token);

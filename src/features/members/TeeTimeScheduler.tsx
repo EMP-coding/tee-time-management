@@ -18,7 +18,7 @@ interface Course {
     id: number;
     label: string;
     value: number;
-    course_image: string;  // Assuming the course object includes an image URL
+    course_image: string;  
     course_name: string;
 }
 
@@ -140,7 +140,7 @@ const TeeTimeScheduler: React.FC = () => {
         disabled={index >= teeTime.available_slots || new Date(teeTime.start_time) < new Date()}
         className={`slot ${index < teeTime.available_slots ? (index < numberOfPlayers ? 'slot-available' : 'slot-unavailable') : 'slot-filled'} ${index < numberOfPlayers ? 'slot-selected' : ''}`}
     >
-        {index < teeTime.available_slots ? (index < numberOfPlayers ? `Player ${index + 1}` : 'Reserved') : 'Reserved'}
+        {index < teeTime.available_slots ? (index < numberOfPlayers ? `Player ${index + 1}` : '---') : 'Reserved'}
     </button>
 ))}
                             </div>

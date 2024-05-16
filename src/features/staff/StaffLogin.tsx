@@ -1,29 +1,32 @@
+// StaffLogin.tsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { endpoints } from '../../API/apiendpoints';
-
-import './staff.css';
+import { useUser } from '../../context/UserContext';  
 
 const StaffLogin: React.FC = () => {
     const [email, setEmail] = useState('');
-    const [pin, setPin] = useState('');  // Changed from password to pin
+    const [pin, setPin] = useState('');
     const [loginError, setLoginError] = useState('');
     const navigate = useNavigate();
+    const { setLoginState } = useUser();  
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const response = await axios.post(endpoints.STAFF_SIGN_IN, {
-                email: email,
-                pin: pin  // Changed to send pin
-            });
+            const response = await axios.post(endpoints.STAFF_SIGN_IN, { email, pin });
             if (response.status === 200 && response.data.access_token && response.data.staff_id) {
                 console.log('Login successful', response.data);
-                // Store the access token and staff ID in localStorage
-                localStorage.setItem('staffToken', response.data.access_token);
-                localStorage.setItem('staffId', response.data.staff_id.toString());
-                localStorage.setItem('clubID', response.data.club_id.toString());
+
+                // Update user context upon successful login
+                setLoginState({
+                    accessToken: response.data.access_token,
+                    staffId: response.data.staff_id,
+                    clubId: response.data.club_id,
+                    isStaff: true
+                });
+
                 // Navigate to the Staff Dashboard after successful login
                 navigate('/staff-dashboard');
             } else {
@@ -44,7 +47,7 @@ const StaffLogin: React.FC = () => {
                     <input type="email" id="email" className="form-input" value={email} onChange={e => setEmail(e.target.value)} />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="pin" className="form-label">PIN:</label>  {/* Changed from Password to PIN */}
+                    <label htmlFor="pin" className="form-label">PIN:</label>
                     <input type="password" id="pin" className="form-input" value={pin} onChange={e => setPin(e.target.value)} />
                 </div>
                 <button type="submit" className="submit-btn">Login</button>
