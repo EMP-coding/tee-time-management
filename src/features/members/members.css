@@ -351,14 +351,14 @@
 .news h3 {
   font-weight: bolder;
 }
-@media (max-width: 480px) {
+@media (max-width: 560px) {
   .login-container,
   .register-container {
     width: 90%; 
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 560px) {
   .dashcontainer {
     display: flex;
     flex-direction: column; 

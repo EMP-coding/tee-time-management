@@ -12,6 +12,7 @@ import StaffDashboard from './features/staff/StaffDashBoard';
 import GenerateTeeTimes from './features/staff/GenerateTeeTimes';
 import ProfileView from './features/members/ProfileView';
 import { UserProvider } from './context/UserContext';
+import StaffClubNews from './features/staff/StaffClubNews';
 const App: React.FC = () => {
     return (
         <Router>
@@ -27,6 +28,7 @@ const App: React.FC = () => {
                     <Route path="/staff-dashboard" element={<StaffDashboard />} />
                     <Route path="/staff/generate-tee-times" element={<GenerateTeeTimes />} />
                     <Route path="/dashboard/profile" element={<ProfileView />} />
+                    <Route path="/club-news" element={<StaffClubNews/>} />
                     {}
                 </Routes>
                 <Footer />

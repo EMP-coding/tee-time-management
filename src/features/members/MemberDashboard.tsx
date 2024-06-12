@@ -84,7 +84,7 @@ const MemberDashboard = () => {
                                         <p>Reservation at: {booking.course_name}</p>
                                         <p>Tee Time: {new Date(booking.tee_time_start).toLocaleString()}</p>
                                         <p>Status: {booking.status}</p>
-                                        <p>{booking.slotsBooked} slots booked</p>
+                                        <p>{booking.slotsBooked} Players</p>
                                     </div>
                                     <button onClick={() => handleDelete(booking.teeTimeId)} className="delete-tee-time-btn">Delete</button>
                                 </div>
