@@ -1,11 +1,10 @@
-
 const API_BASE_URL = 'http://localhost:5000'; 
 
 export const endpoints = {
-    GET_MEMBERS: `${API_BASE_URL}/members/all`, // Endpoint to get all members
-    CREATE_MEMBER: `${API_BASE_URL}/create/member`, // Endpoint to create a new member
-    REGISTER_MEMBER: `${API_BASE_URL}/members/register`, // Endpoint to register a new member
-    LOGIN_MEMBER: `${API_BASE_URL}/members/login`, // Endpoint to authenticate a member
+    GET_MEMBERS: `${API_BASE_URL}/members/all`,
+    CREATE_MEMBER: `${API_BASE_URL}/create/member`,
+    REGISTER_MEMBER: `${API_BASE_URL}/members/register`,
+    LOGIN_MEMBER: `${API_BASE_URL}/members/login`,
     AVAIL_TEE_TIMES: `${API_BASE_URL}/tee-times/available`,
     RESERVE_TEE_TIME: `${API_BASE_URL}/tee-times/reserve`,
     STAFF_SIGN_IN: `${API_BASE_URL}/staff/fixedlogin`,
@@ -18,6 +17,7 @@ export const endpoints = {
     GET_COURSES_BY_CLUB_ID: `${API_BASE_URL}/course/{club_id}`,
     GET_BOOKINGS_WITH_TEE_TIMES: `${API_BASE_URL}/tee-times/bookings`,
     VIEW_NEWS: `${API_BASE_URL}/news`,
-    ADD_NEWS_ENDPOINT: `${API_BASE_URL}/news/add`
-
+    ADD_NEWS_ENDPOINT: `${API_BASE_URL}/news/add`,
+    UPDATE_NEWS_ENDPOINT: `${API_BASE_URL}/news/update`,
+    DELETE_NEWS_ENDPOINT: `${API_BASE_URL}/news/delete`
 };

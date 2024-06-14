@@ -36,7 +36,7 @@ const ClubNews: React.FC = () => {
                 <div key={item.id} className="news-item">
                     <h4>{item.title}</h4>
                     <p>{item.content}</p>
-                    {item.image && <img src={`http://localhost:5000/uploads/${item.image}`} alt={item.title} style={{ width: '75%' }} />}
+                    {item.image && <img src={`http://localhost:5000/uploads/${item.image}`} alt={item.title} style={{ width: '50%' }} />}
 
                 </div>
             ))}
