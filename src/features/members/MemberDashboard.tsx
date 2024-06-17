@@ -86,7 +86,7 @@ const MemberDashboard = () => {
                                         <p>Status: {booking.status}</p>
                                         <p>{booking.slotsBooked} Players</p>
                                     </div>
-                                    <button onClick={() => handleDelete(booking.teeTimeId)} className="delete-tee-time-btn">Delete</button>
+                                    <button onClick={() => handleDelete(booking.teeTimeId)} className="delete-tee-time-btn">Cancel Reservation</button>
                                 </div>
                             ))
                         ) : (

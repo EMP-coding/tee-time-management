@@ -87,6 +87,7 @@ const StaffClubNews: React.FC = () => {
     return (
         <div className='main-contain'>
             <form className='main-form' onSubmit={handleSubmit}>
+                <h2>Club News Editor</h2>
                 <div>
                     <label>Title:</label>
                     <input 
@@ -115,15 +116,15 @@ const StaffClubNews: React.FC = () => {
                 <button className='addNews' type="submit">{editMode !== null ? 'Update News' : 'Add News'}</button>
             </form>
             <div>
-                <h2>Existing News</h2>
+                <h2>Existing News:</h2>
                 {newsData.length > 0 ? (
                     newsData.map(news => (
                         <div key={news.id} className="news-item">
                             <h3>{news.title}</h3>
                             <p>{news.content}</p>
                             {news.image && <img src={`${baseURL}/${news.image}`} alt={news.title} />}
-                            <button onClick={() => handleEdit(news)}>Edit</button>
-                            <button onClick={() => handleDelete(news.id)}>Delete</button>
+                            <button className="ebtn" onClick={() => handleEdit(news)}>Edit</button>
+                            <button className='delbtn' onClick={() => handleDelete(news.id)}>Delete</button>
                         </div>
                     ))
                 ) : (

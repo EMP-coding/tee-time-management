@@ -51,16 +51,19 @@
 }
 
 .tee-time-list2 {
-    max-height: 300px;
+    max-height: 600px;
     overflow-y: auto;
     border: 10px solid #3e474929;
     padding: 10px;
 }
 
+
 .tee-time-item2 {
+    display: flex;
+    align-items: center;
     margin-bottom: 5px;
     padding: 5px;
-    background-color: #a5d6a7 !important;
+    background-color: #a5d6a7;
     color: black;
 }
 .tee-time-item:hover {
@@ -101,7 +104,9 @@
 }
 
 .tee-time-item2 ul {
-    padding-left: 20px; /* Add padding to list inside tee-time item */
+    padding-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .tee-time-item2 li {
@@ -113,6 +118,54 @@
     margin: 2px;
     background-color: #f0f0f0;
     border-radius: 5px;
+}
+
+.tee-time-slot.booked {
+    background-color: #00e5fe;
+}
+
+
+
+.tee-time-list2 {
+    max-height: 600px;
+    overflow-y: auto;
+    border: 10px solid #3e474929;
+    padding: 10px;
+}
+
+.tee-time-item2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #a5d6a7;
+    color: black;
+}
+
+.tee-time-item2.booked {
+    background-color: red;
+}
+
+.tee-time-item2 ul {
+    display: flex;
+    flex-grow: 1;
+    gap: 5px; /* Space between slots */
+    padding-left: 20px;
+    margin: 0; /* Reset margin */
+    list-style: none; /* Remove default list styling */
+}
+
+.tee-time-item2 li {
+    flex: 1;
+}
+
+.tee-time-slot {
+    padding: 5px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    text-align: center;
+    flex-grow: 1;
 }
 
 .tee-time-slot.booked {

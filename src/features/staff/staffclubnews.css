@@ -55,6 +55,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     margin: 0 auto;
+    margin-bottom: 10%;
 }
 
 .news-item img {
@@ -64,4 +65,13 @@
     height: auto;
     display: block;
     margin: 0 auto;
+}
+
+.ebtn {
+background-color: #00c0ff;
+max-height: 45px;
+}
+
+.delbtn {
+    background-color: red;
 }
